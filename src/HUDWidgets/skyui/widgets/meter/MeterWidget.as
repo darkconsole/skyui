@@ -110,6 +110,12 @@ class skyui.widgets.meter.MeterWidget extends WidgetBase
 		meter.startFlash(a_force);
 	}
 
+	// @papyrus
+	public function setText(InputText: String): Void
+	{
+		
+		meter.setText(InputText);
+	}
 
   /* PRIVATE FUNCTIONS */
 

@@ -1,4 +1,4 @@
-import skyui.util.ColorFunctions;
+﻿import skyui.util.ColorFunctions;
 import Shared.GlobalFunc;
 import flash.geom.Transform;
 import flash.geom.ColorTransform;
@@ -227,6 +227,18 @@ class skyui.components.Meter extends MovieClip
 	public function set percent(a_percent: Number): Void
 	{
 		setPercent(a_percent);
+	}
+
+	public function setText(InputText: String): Void
+	{
+
+		// apparently every time you change the text, it forgets what font it was using.
+		var OriginalFormat: TextFormat = meterContent.textLabel.getTextFormat();
+		
+		meterContent.textLabel.text = InputText;
+		
+		// so yeah that was a 2.5hr discovery.
+		meterContent.textLabel.setTextFormat( newTextFormat );
 	}
 
 	public function setPercent(a_percent: Number, a_force: Boolean): Void
