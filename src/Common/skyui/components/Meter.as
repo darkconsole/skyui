@@ -238,7 +238,7 @@ class skyui.components.Meter extends MovieClip
 		meterContent.textLabel.text = InputText;
 		
 		// so yeah that was a 2.5hr discovery.
-		meterContent.textLabel.setTextFormat( newTextFormat );
+		meterContent.textLabel.setTextFormat( OriginalFormat );
 	}
 
 	public function setPercent(a_percent: Number, a_force: Boolean): Void
