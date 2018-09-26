@@ -113,8 +113,13 @@ class skyui.widgets.meter.MeterWidget extends WidgetBase
 	// @papyrus
 	public function setText(InputText: String): Void
 	{
-		
 		meter.setText(InputText);
+	}
+
+	// @papyrus
+	public function setTitle(InputText: String): Void
+	{
+		meter.setTitle(InputText);
 	}
 
   /* PRIVATE FUNCTIONS */

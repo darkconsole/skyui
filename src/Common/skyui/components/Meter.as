@@ -241,6 +241,15 @@ class skyui.components.Meter extends MovieClip
 		meterContent.textLabel.setTextFormat( OriginalFormat );
 	}
 
+	public function setTitle(InputText: String): Void
+	{
+		var OriginalFormat: TextFormat = meterContent.titleLabel.getTextFormat();
+		
+		meterContent.titleLabel.text = InputText;
+		
+		meterContent.titleLabel.setTextFormat( OriginalFormat );
+	}
+
 	public function setPercent(a_percent: Number, a_force: Boolean): Void
 	{
 		_targetPercent = Math.min(1, Math.max(a_percent, 0));
@@ -283,14 +292,16 @@ class skyui.components.Meter extends MovieClip
 		background._height = __height;
 
 		// Calculate scaling percent of the meter based on heights
-		var scalePercent: Number = __height/_originalHeight;
+		var scalePercentY: Number = __height/_originalHeight;
+		var scalePercentX: Number = __width/_originalWidth;
 
 		// Scale the meterContent based on height so the caps AR is maintained
-		meterContent._xscale = meterContent._yscale = scalePercent * 100;
+		meterContent._xscale = scalePercentX * 100;
+		meterContent._yscale = scalePercentY * 100;
 
 		// Scale inner content
 		// Scale meterFrameContent instead of meterFrameHolder due to scale9Grid
-		_meterFrameContent._width = __width / scalePercent; // newWidth = oldWidth * newPercent/oldPercent /. newPercent -> 100
+		_meterFrameContent._width = __width / scalePercentX; // newWidth = oldWidth * newPercent/oldPercent /. newPercent -> 100
 		_meterFillHolder._xscale = ((_meterFrameContent._width - 2*_originalCapWidth)/_originalMeterFillHolderWidth) * 100;
 	}
 
